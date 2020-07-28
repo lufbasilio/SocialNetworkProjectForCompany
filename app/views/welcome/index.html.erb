@@ -1,0 +1,95 @@
+<% if current_user %>
+
+    <div class="profile-container">
+        <div class="content">
+
+            <div class="image-container">
+                <%= image_tag "background-cover.jpg", class: "img-responsive"%>
+                
+                <div class="avatar-container">
+                    <%= image_tag current_user.avatar.url(:thumb), class: "user-avatar", alt:"Profile Image"%>
+                </div>
+            </div>
+
+            <h1 class="nome-usuario"><%= current_user.name %></h1>
+            <div class="informacoes-container">
+                <div class="box-info">
+                    <h2 class="bio-text"><%= current_user.bio %></h2>
+                </div>            
+            </div>
+
+            <div class="container-profile-buttons">
+                <%= link_to "Editar", edit_user_registration_path, class: "button" %>
+                <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "button" %>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="friends-container">
+        <div class="sugested-friends-container">
+            
+            <h2 class="friends-title">Pessoas que você segue e sugestões</h2>
+
+            <% @users = User.all %>
+                <% @users.each do |user| %>
+
+                    <% if current_user.id != user.id%>
+                        <center>
+                            <% if !current_user.following?(user) %>
+                                <%= form_for(current_user.active_relationships.build) do |f| %>
+                                    <div> <%=  hidden_field_tag :followed_id, user.id %> </div>
+
+                                    <%= image_tag user.avatar.url(:thumb).to_s, class:"friend-avatar" %>
+                                    <h3 class="friend-name"> <%= user.name %> </h3>
+                                    <p style="font-weight: bold;"> @<%= user.nickname %> </p>
+                                    <%=  f.submit "Seguir", class: "button-follow" %>
+
+                                <% end %>
+                            <% else %>
+                                <%= form_for(current_user.active_relationships.find_by(followed_id: user.id),
+                                    html: {method: :delete}) do |f| %>
+
+                                    <%= image_tag user.avatar.url(:thumb).to_s, class:"friend-avatar" %>
+                                    <h3 class="friend-name"> <%= user.name %> </h3>
+                                    <p style="font-weight: bold;"> @<%= user.nickname %> </p>
+                                    <%=  f.submit "Deixar de Seguir", class: "button-unfollow" %>
+
+                                <% end %>
+                            <% end %>
+                        </center>
+                    <% end %>
+                <% end %>
+        </div>
+    </div>
+
+    <div class="follow-container">
+        <div class="followers">
+            <h2 class="follow-title">Seguidores</h2>
+            <h3 class="contador"> <%= current_user.followers.count %> </h3>
+        </div>
+
+        <div class="following">
+            <h2 class="follow-title">Seguindo</h2>
+            <h3 class="contador"> <%= current_user.following.count %> </h3>
+        </div>
+    </div>
+
+<% else %>
+
+    <div class="welcome-container">
+        <%= image_tag "logo-neemo.png", class: "logo-background"%>
+        
+        <div class="login-cadastro">
+            <h1> Faça Login ou Cadastre-se</h1>
+            <div class="container-buttons">
+                <%= link_to "Login", new_user_session_path, class: "button"%>
+                <%= link_to "Cadastro", new_user_registration_path, class: "create-button"%>
+            </div>
+        </div>
+
+        <%= image_tag "avatar-background.png", class: "avatar-background"%>
+
+    </div>
+
+<% end %>

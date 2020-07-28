@@ -1,0 +1,29 @@
+<div class="password-container">
+  
+  <div class="page-title">
+    <h2>Esqueceu sua senha?</h2>
+  </div>  
+
+  <div class="form-container">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      
+      <div class="error-container">
+        <%= render "devise/shared/error_messages", resource: resource %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Redefinir senha", class: "button" %>
+        
+        <div class="link-container">
+          <%= render "devise/shared/links"%>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+</div>

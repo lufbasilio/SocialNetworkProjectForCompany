@@ -1,0 +1,87 @@
+<div class="new-container">
+
+  <div class="page-title">
+    <h2>Cadastro</h2>
+  </div>
+
+  <div class="form-container">
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      
+      <div class="error-container">
+        <%= render "devise/shared/error_messages", resource: resource %>
+      </div>
+      
+      <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :nickname %><br />
+        <%= f.text_field :nickname, autocomplete: "nickname" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autocomplete: "email" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :phone %><br />
+        <%= f.text_field :phone, autocomplete: "phone" %>
+      </div>
+
+      <div class="dual-container">
+        <div class="field">
+          <%= f.label :birth_date %><br />
+          <%= f.date_field :birth_date, autocomplete: "birth_date" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :country %><br />
+          <%= f.text_field :country, autocomplete: "country" %>
+        </div>
+      </div>
+
+      <div class="field">
+        <%= f.label :gender %><br />
+        <%= f.text_field :gender, autocomplete: "gender" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :bio %><br />
+        <%= f.text_area :bio, autocomplete: "bio", :cols => "38", :rows => "8" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :avatar %><br/>
+        <%= f.file_field :avatar %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(Mínimo de <%= @minimum_password_length %> caracteres)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Cadastrar", class: "button" %>
+        
+        <div class="link-container">
+          <p class="login-text">Ou se já possuir uma conta, faça <%= link_to "Login", new_user_session_path%></p>
+        </div>
+      </div>
+      
+    <% end %>
+
+  </div>
+
+</div>

@@ -1,0 +1,236 @@
+// Place all the styles related to the Welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.profile-container {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 60px;
+    box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.1);
+}
+
+.profile-container h2 {
+    font-size: 18px;
+}
+
+.content {
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.image-container {
+    flex: 1;
+}
+
+.logo-background {
+    width: 30%;
+    height: 50%;
+}
+
+.avatar-background {
+    width: 25%;
+    height: 50%;
+}
+
+.login-cadastro {
+    margin-bottom: 72px;
+}
+
+.image-container .avatar-container .user-avatar {
+    border-radius: 50%;
+    height: 160px;
+    width: 160px;
+    z-index: 1;
+    margin: -5.5% 0 0 45.6%;
+    border: 1px solid grey;
+}
+
+.nome-usuario {
+    margin-top: 12px;
+    text-align: center;
+    font-weight: bold;
+    color: #666;
+}
+.box-info {
+    margin: -8% 0 5% 6%;
+    max-width: 82%;
+}
+
+.informacoes-container {
+    margin: 10% 0 0 3.8%; 
+}
+
+.apelido {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.bio-text {
+    text-align: justify;
+    font-style: italic;
+}
+
+.content .image-container .img-responsive {
+    height: 17em;
+    width: 100%;
+    z-index: 0;
+}
+
+h1 {
+    font-size: 25px;
+    margin-bottom: 84px;
+    font-weight: bold;
+}
+
+.container-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.container-profile-buttons {
+    float: right;
+    padding: 0 2% 2% 0;
+}
+
+.container-profile-buttons .button:nth-child(2){
+    background-color: #EEE;
+    border: 1px solid #C44;
+    color: #C44;
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.button {
+    background-color: #41414D;
+    border: none;
+    border-radius: 5%;
+    padding: 10px 25px 10px 25px;
+    cursor: pointer;
+    align-items: center;
+    color: #FFF;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 16px;
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.create-button {
+    background-color: #eb822c;
+    border: none;
+    border-radius: 5%;
+    padding: 10px 25px 10px 25px;
+    cursor: pointer;
+    align-items: center;
+    color: #FFF;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 16px;
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.logout-button {
+    background-color: white;
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-container {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.friends-container {
+    display: flex;
+    width: 500px;
+    justify-content: center;
+    align-items: center;
+    margin: 2% 3% 0 0;
+    float: right;
+    box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.1);
+    max-height: 30%;
+    padding: 12px 0;
+}
+
+.friends-container h2 {
+    color: #666;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.sugested-friends-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.sugested-friends-container .friend-avatar {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 12px;
+}
+
+.friend-container {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.friend-name {
+    font-size: 17px;
+}
+
+.button-follow {
+    border: none;
+    background-color: #eb822c;
+    margin: 12px;
+    cursor: pointer;
+    border-radius: 12%;
+    font-size: 16px;
+    color: #FFF;
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
+    height: 30px;
+}
+
+.button-unfollow {
+    border: none;
+    margin: 12px;
+    cursor: pointer;
+    border-radius: 5%;
+    font-size: 16px;
+    color: #FFF;
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
+    height: 30px;
+    color:  #f18024;
+    border: 1px solid #eb822c;
+}
+
+.follow-container {
+    padding: 12px 0;
+    display: flex;
+    width: 500px;
+    justify-content: space-evenly;
+    margin: 2% 0 0 3%;
+    float: left;
+    box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.1);
+    max-height: 30%;
+}
+
+.follow-title {
+    font-weight: bold;
+    color: #666;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.contador {
+    color: #888;
+    font-size: 19px;
+    text-align: center;
+}
